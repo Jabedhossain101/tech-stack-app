@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "Sony WH-1000XM5 Headphones",
     "description": "Industry-leading noise cancelling over-ear headphones with exceptional sound quality.",
     "price": 999,
@@ -8,7 +7,6 @@
     "image": "https://i.ibb.co.com/N6LKchjx/image.png"
   },
   {
-    "id": 2,
     "name": "Logitech MX Keys Keyboard",
     "description": "Advanced wireless keyboard with smart illumination and perfect typing experience.",
     "price": 1299,
@@ -16,7 +14,6 @@
     "image": "https://i.ibb.co.com/HTjB9C8C/image.png"
   },
   {
-    "id": 3,
     "name": "Apple MacBook Air M2",
     "description": "Lightweight laptop with M2 chip, perfect for work and multimedia.",
     "price": 99999,
@@ -24,7 +21,6 @@
     "image": "https://i.ibb.co.com/7d1dWKjs/image.png"
   },
   {
-    "id": 4,
     "name": "Samsung 32-inch Curved Monitor",
     "description": "High resolution curved monitor with vivid colors and smooth performance.",
     "price": 279,
@@ -32,7 +28,6 @@
     "image": "https://i.ibb.co.com/ymwqR1wB/image.png"
   },
   {
-    "id": 5,
     "name": "Logitech MX Master 3 Mouse",
     "description": "Ergonomic wireless mouse with advanced tracking and multi-device support.",
     "price": 899,
@@ -40,7 +35,6 @@
     "image": "https://i.ibb.co.com/XkJCDbMP/image.png"
   },
   {
-    "id": 6,
     "name": "Anker PowerCore 26800 Portable Charger",
     "description": "High capacity portable charger for phones, tablets, and other USB devices.",
     "price": 2000,

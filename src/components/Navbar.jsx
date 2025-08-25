@@ -48,7 +48,7 @@ export default function Navbar() {
          {navMenu()}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">TechStack</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -56,7 +56,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <Link href={'/login'} className="btn bg-white text-black">Login</Link>
         </div>
       </div>
     </div>
