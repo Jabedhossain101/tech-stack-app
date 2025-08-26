@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 export default function RegisterPage() {
   const router = useRouter();
   const [form, setForm] = useState({ name: '', email: '', password: '' });
+  console.log(form);
   const [message, setMessage] = useState('');
 
   const handleChange = e => {
@@ -15,8 +16,6 @@ export default function RegisterPage() {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    // ডেমো registration → যেকোনো input দিলে redirect হবে
     setMessage('Registration successful!');
     setTimeout(() => {
       router.push('/login');
@@ -24,7 +23,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex text-black items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Register
@@ -40,7 +39,7 @@ export default function RegisterPage() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-800 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-600"
               placeholder="Your Name"
               required
             />
@@ -55,7 +54,7 @@ export default function RegisterPage() {
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-600"
               placeholder="you@example.com"
               required
             />
@@ -70,7 +69,7 @@ export default function RegisterPage() {
               name="password"
               value={form.password}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-600"
               placeholder="Password"
               required
             />
