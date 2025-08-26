@@ -53,12 +53,7 @@ export default function Navbar() {
                 >
                   Login
                 </Link>
-                <Link
-                  href="/register"
-                  className="btn bg-blue-600 text-white w-full text-center"
-                >
-                  Register
-                </Link>
+          
               </div>
             </ul>
           </div>
@@ -82,9 +77,7 @@ export default function Navbar() {
           >
             Login
           </Link>
-          <Link href="/register" className="btn bg-blue-600 text-white">
-            Register
-          </Link>
+   
         </div>
       </div>
     </div>

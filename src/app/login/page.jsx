@@ -3,19 +3,25 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function LoginPage() {
+export default function DemoLoginPage() {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setError('');
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    // Demo login → যেকোনো email/password দিলে login successful
-    localStorage.setItem('isLoggedIn', 'true'); // session simulation
-    router.push('/'); // homepage এ redirect
+    // Demo credentials
+    if (form.email === 'demo@gmail.com' && form.password === 'demo123') {
+      localStorage.setItem('isLoggedIn', 'true'); // session simulation
+      router.push('/products'); // successful login → products page
+    } else {
+      setError('Invalid credentials! Use demo@gmail.com / demo123');
+    }
   };
 
   return (
@@ -35,7 +41,7 @@ export default function LoginPage() {
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="you@example.com"
+              placeholder="demo@gmail.com"
               className="w-full border text-gray-800 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-600"
               required
             />
@@ -50,25 +56,26 @@ export default function LoginPage() {
               name="password"
               value={form.password}
               onChange={handleChange}
-              placeholder="Password"
+              placeholder="demo123"
               className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-600"
               required
             />
           </div>
 
+          {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+
           <button
             type="submit"
-            className="w-full bg-black text-white font-semibold py-2 rounded"
+            className="w-full bg-black text-white font-semibold py-2 rounded hover:bg-gray-900 transition"
           >
             Login
           </button>
         </form>
 
-        <p className="mt-4 text-center text-gray-600">
-          Don't have an account?{' '}
-          <a href="/register" className="text-blue-600 hover:underline">
-            Register
-          </a>
+        <p className="mt-4 text-gray-600 text-sm text-center">
+          Demo credentials: <br />
+          <strong>Email:</strong> demo@gmail.com <br />
+          <strong>Password:</strong> demo123
         </p>
       </div>
     </div>
