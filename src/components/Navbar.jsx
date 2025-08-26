@@ -1,9 +1,25 @@
-'use client'; // Client component required
+'use client';
 
 import Link from 'next/link';
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  // Check login status on mount
+  useEffect(() => {
+    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loggedIn);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+    router.push('/'); // redirect to homepage
+  };
+
   const navMenu = () => (
     <>
       <li>
@@ -12,15 +28,17 @@ export default function Navbar() {
       <li>
         <Link href={'/products'}>Products</Link>
       </li>
-      <li>
-        <Link href={'/add-products'}>Add Product</Link>
-      </li>
+      {isLoggedIn && (
+        <li>
+          <Link href={'/add-products'}>Add Product</Link>
+        </li>
+      )}
     </>
   );
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm px-4">
+      <div className="navbar bg-base-100 shadow-sm px-4 fixed top-0 left-0 w-full z-50">
         {/* Navbar Start */}
         <div className="navbar-start">
           {/* Mobile Dropdown */}
@@ -46,14 +64,24 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               {navMenu()}
+
+              {/* Mobile Login/Logout buttons */}
               <div className="flex flex-col gap-2 mt-4">
-                <Link
-                  href={'/login'}
-                  className="btn bg-white text-black w-full text-center"
-                >
-                  Login
-                </Link>
-          
+                {!isLoggedIn ? (
+                  <Link
+                    href={'/login'}
+                    className="btn bg-white text-black w-full text-center"
+                  >
+                    Login
+                  </Link>
+                ) : (
+                  <button
+                    onClick={handleLogout}
+                    className="btn bg-red-600 text-white w-full"
+                  >
+                    Logout
+                  </button>
+                )}
               </div>
             </ul>
           </div>
@@ -69,17 +97,28 @@ export default function Navbar() {
           <ul className="menu menu-horizontal px-1">{navMenu()}</ul>
         </div>
 
-        {/* Navbar End - Desktop Login/Register */}
+        {/* Navbar End - Desktop Login/Logout */}
         <div className="navbar-end hidden lg:flex gap-2">
-          <Link
-            href={'/login'}
-            className="btn bg-white text-black border border-gray-300"
-          >
-            Login
-          </Link>
-   
+          {!isLoggedIn ? (
+            <Link
+              href={'/login'}
+              className="btn bg-white text-black border border-gray-300"
+            >
+              Login
+            </Link>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="btn bg-red-600 text-white"
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
+
+      {/* নিচে space দিতে হবে যাতে content navbar এর নিচ থেকে শুরু হয় */}
+      <div className="h-16"></div>
     </div>
   );
 }

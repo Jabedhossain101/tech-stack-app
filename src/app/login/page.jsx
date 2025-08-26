@@ -28,7 +28,7 @@ export default function DemoLoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Demo Login
+          Login
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -42,7 +42,7 @@ export default function DemoLoginPage() {
               value={form.email}
               onChange={handleChange}
               placeholder="demo@gmail.com"
-              className="w-full border text-gray-800 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-600"
+              className="w-full border bg-blue-50 border-gray-300 rounded px-3 py-2 text-black placeholder:text-blue-50"
               required
             />
           </div>
@@ -57,7 +57,7 @@ export default function DemoLoginPage() {
               value={form.password}
               onChange={handleChange}
               placeholder="demo123"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-600"
+              className="w-full border border-gray-300 rounded px-3 py-2 text-black placeholder:text-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
