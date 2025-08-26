@@ -12,6 +12,9 @@ export default function Navbar() {
         <li>
           <Link href={"/products"}>Products</Link>
         </li>
+        <li>
+          <Link href={"/add-products"}>Add product</Link>
+        </li>
        
         
         
@@ -45,18 +48,29 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-         {navMenu()}
+              {navMenu()}
+              <div className="flex flex-col gap-2 mt-4">
+                <Link href={'/login'} className="btn bg-white text-black">
+                  Login
+                </Link>
+                <Link href="/register" className="btn bg-blue-600 text-white">
+                  Register
+                </Link>
+              </div>
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">TechStack</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-        {navMenu()}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navMenu()}</ul>
         </div>
         <div className="navbar-end">
-          <Link href={'/login'} className="btn bg-white text-black">Login</Link>
+          <Link href={'/login'} className="btn bg-white text-black">
+            Login
+          </Link>
+          <Link href="/register" className="btn bg-blue-600 text-white">
+            Register
+          </Link>
         </div>
       </div>
     </div>

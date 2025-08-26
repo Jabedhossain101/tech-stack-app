@@ -3,6 +3,11 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 let cachedClient = null;
 let cachedDb = null;
 
+export const collectionName = {
+userCollection : "users",
+  
+}
+
 export async function dbConnect() {
   if (cachedClient && cachedDb) {
     return { client: cachedClient, db: cachedDb };
